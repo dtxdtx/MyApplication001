@@ -48,7 +48,7 @@ public class LockScreenActivity extends AppCompatActivity {
         }else {
             Intent intent = getIntent();
             hour1 = intent.getIntExtra("hour", 0);
-            minute1 = intent.getIntExtra("minute", 1);
+            minute1 = intent.getIntExtra("minute", 30);
             second1 = intent.getIntExtra("second", 0);
             cha = intent.getLongExtra("cha", 0);
             Log.d("主活动", "\t 时：" + hour1 + "\t 分：" + minute1 + "\t 秒：" + second1+"\t 秒"+cha);
