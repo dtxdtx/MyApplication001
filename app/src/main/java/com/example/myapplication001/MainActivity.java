@@ -1,6 +1,7 @@
 package com.example.myapplication001;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,13 +17,12 @@ public class MainActivity extends AppCompatActivity {
     private EditText second;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ActionBar actionBar=getSupportActionBar();
-        if (actionBar!=null){
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
             actionBar.hide();
         }
         Log.d("主活动", "主活动已创建");
@@ -42,9 +42,8 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "请设置时间", Toast.LENGTH_SHORT).show();
                             Log.d("主活动", "设置时间");
                             break;
-                        }
-                        else {
-                            LockScreenActivity.startLockAction(MainActivity.this, hour1, minute1,second1, (long) 0);
+                        } else {
+                            LockScreenActivity.startLockAction(MainActivity.this, hour1, minute1, second1, (long) 0,false);
                         }
                         break;
                     default:
@@ -56,4 +55,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
 }
